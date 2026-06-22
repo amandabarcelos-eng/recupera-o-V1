@@ -1,64 +1,63 @@
-// script.js
 let currentQuestion = 0;
 let score = 0;
 
 const questions = [
     {
-        question: "O que significa a palavra 'Deepfake'?",
-        options: [
-            "Um tipo de filtro do Instagram",
-            "Vídeos ou áudios manipulados por IA",
-            "Uma rede social nova",
-            "Um vírus de computador"
-        ],
+        question: "O que significa 'Deepfake'?",
+        options: ["Filtro do Instagram", "Conteúdo manipulado por IA", "Um vírus", "Uma rede social"],
         answer: 1
     },
     {
-        question: "Qual é uma das principais formas de identificar deepfakes?",
-        options: [
-            "Olhar apenas para a roupa da pessoa",
-            "Observar piscadas irregulares e iluminação inconsistente",
-            "Aumentar o volume do áudio",
-            "Confiar sempre no título do vídeo"
-        ],
+        question: "Qual tecnologia é usada para criar deepfakes?",
+        options: ["HTML e CSS", "Redes Neurais (GANs)", "Banco de dados", "Editores de vídeo comuns"],
         answer: 1
     },
     {
-        question: "Por que as deepfakes são perigosas em períodos eleitorais?",
-        options: [
-            "Porque elas são muito engraçadas",
-            "Podem manipular a opinião pública com discursos falsos",
-            "Porque elas consomem muita internet",
-            "Não são perigosas"
-        ],
+        question: "Qual é um sinal comum de deepfake?",
+        options: ["Piscadas irregulares nos olhos", "Muito brilho", "Legenda grande", "Música alta"],
+        answer: 0
+    },
+    {
+        question: "Por que deepfakes são perigosas em eleições?",
+        options: ["São engraçadas", "Podem influenciar eleitores com discursos falsos", "Consumem internet", "Não são perigosas"],
         answer: 1
     },
     {
-        question: "O que você deve fazer ao receber uma notícia chocante?",
-        options: [
-            "Compartilhar imediatamente",
-            "Verificar em sites de fact-checking antes de compartilhar",
-            "Acreditar porque veio de um amigo",
-            "Ignorar completamente"
-        ],
+        question: "Qual a melhor atitude ao receber uma notícia chocante?",
+        options: ["Compartilhar imediatamente", "Verificar em sites de fact-checking", "Acreditar se veio de amigo", "Ignorar"],
+        answer: 1
+    },
+    {
+        question: "Qual ferramenta pode ajudar a detectar deepfakes?",
+        options: ["Paint", "Deepware Scanner", "Calculadora", "Bloco de Notas"],
+        answer: 1
+    },
+    {
+        question: "Deepfakes podem ser usados para:",
+        options: ["Apenas entretenimento", "Fraudes, chantagem e desinformação", "Melhorar qualidade de vídeo", "Apenas em filmes"],
+        answer: 1
+    },
+    {
+        question: "O que significa ser um cidadão digital responsável?",
+        options: ["Postar tudo que vê", "Verificar informações antes de compartilhar", "Usar só redes sociais", "Ignorar notícias"],
         answer: 1
     }
 ];
 
 function loadQuestion() {
     const q = questions[currentQuestion];
-    document.getElementById('question').innerHTML = `<strong>${currentQuestion + 1}.</strong> ${q.question}`;
+    document.getElementById('question').innerHTML = `<strong>${currentQuestion + 1}/${questions.length}</strong> ${q.question}`;
     
     const optionsDiv = document.getElementById('options');
     optionsDiv.innerHTML = '';
-    
+
     q.options.forEach((option, index) => {
         const btn = document.createElement('button');
         btn.textContent = option;
         btn.onclick = () => checkAnswer(index);
         optionsDiv.appendChild(btn);
     });
-    
+
     document.getElementById('next-btn').style.display = 'none';
     document.getElementById('feedback').innerHTML = '';
 }
@@ -67,22 +66,21 @@ function checkAnswer(selected) {
     const q = questions[currentQuestion];
     const buttons = document.querySelectorAll('#options button');
     const feedback = document.getElementById('feedback');
-    
+
     buttons.forEach((btn, i) => {
         btn.disabled = true;
-        if (i === q.answer) {
-            btn.style.borderColor = '#22c55e';
-            btn.style.backgroundColor = '#f0fdf4';
-        }
+        if (i === q.answer) btn.style.borderColor = '#22c55e';
     });
-    
+
     if (selected === q.answer) {
         score++;
-        feedback.innerHTML = `<span style="color: #22c55e;">✅ Correto!</span>`;
+        feedback.innerHTML = `✅ Correto!`;
+        feedback.style.color = '#22c55e';
     } else {
-        feedback.innerHTML = `<span style="color: #ef4444;">❌ Incorreto. A resposta certa era: ${q.options[q.answer]}</span>`;
+        feedback.innerHTML = `❌ Errado. A resposta certa: <strong>${q.options[q.answer]}</strong>`;
+        feedback.style.color = '#ef4444';
     }
-    
+
     document.getElementById('next-btn').style.display = 'block';
 }
 
@@ -99,18 +97,18 @@ function showResult() {
     document.getElementById('quiz-container').style.display = 'none';
     const resultDiv = document.getElementById('quiz-result');
     resultDiv.style.display = 'block';
-    
-    let message = '';
+
     const percentage = Math.round((score / questions.length) * 100);
-    
-    if (percentage === 100) message = "🎉 Excelente! Você domina o tema!";
-    else if (percentage >= 75) message = "👏 Muito bom! Continue estudando.";
-    else if (percentage >= 50) message = "🙂 Bom esforço! Revise os conceitos.";
-    else message = "📚 Vamos estudar mais sobre Cidadania Digital!";
-    
+    let message = '';
+
+    if (percentage === 100) message = "🏆 Parabéns! Você é um expert em Cidadania Digital!";
+    else if (percentage >= 75) message = "👏 Muito bom! Você está bem informado.";
+    else if (percentage >= 50) message = "🙂 Bom esforço! Continue estudando.";
+    else message = "📚 Recomendamos estudar mais sobre o tema.";
+
     document.getElementById('score-text').innerHTML = `
         Você acertou <strong>${score}</strong> de <strong>${questions.length}</strong> perguntas.<br>
-        <span style="font-size: 1.4rem;">${percentage}%</span><br><br>
+        <span style="font-size: 2rem;">${percentage}%</span><br><br>
         ${message}
     `;
 }
@@ -124,29 +122,21 @@ function restartQuiz() {
 }
 
 // Dark Mode
-const toggle = document.getElementById('darkModeToggle');
-toggle.addEventListener('click', () => {
+document.getElementById('darkModeToggle').addEventListener('click', () => {
     document.body.classList.toggle('dark');
-    if (document.body.classList.contains('dark')) {
-        toggle.textContent = '☀️';
-    } else {
-        toggle.textContent = '🌙';
-    }
+    const icon = document.getElementById('darkModeToggle');
+    icon.textContent = document.body.classList.contains('dark') ? '☀️' : '🌙';
 });
 
-// Initialize
+// Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     loadQuestion();
     
-    // Smooth scroll
+    // Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            if (this.getAttribute('href') !== '#') {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
         });
     });
 });
