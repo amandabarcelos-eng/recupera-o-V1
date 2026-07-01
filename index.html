@@ -1,149 +1,181 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital • Deepfakes & IA</title>
+    <title>Cidadania Digital • IA & Deepfakes</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <!-- HEADER -->
     <header>
         <nav class="navbar">
             <div class="logo">
-                <h2>🛡️ Cidadania Digital</h2>
+                <i class="fas fa-shield-alt"></i>
+                <span>Cidadania Digital</span>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Início</a></li>
                 <li><a href="#deepfakes">Deepfakes</a></li>
-                <li><a href="#riscos">Riscos</a></li>
+                <li><a href="#desinformacao">Desinformação</a></li>
                 <li><a href="#identificar">Como Identificar</a></li>
                 <li><a href="#quiz">Quiz</a></li>
                 <li><a href="#dicas">Dicas</a></li>
             </ul>
             <div class="nav-actions">
-                <button id="darkModeToggle" class="toggle-btn">🌙</button>
+                <button id="darkModeToggle" class="toggle-btn" title="Alternar Modo Escuro">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- HERO -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Cidadania Digital e Inteligência Artificial</h1>
-            <p class="subtitle">Entenda o impacto das <strong>deepfakes</strong> e da desinformação na nossa sociedade</p>
-            <a href="#quiz" class="cta-button">Teste seus conhecimentos →</a>
-        </div>
-        <div class="hero-image">
-            <div class="warning-badge">⚠️ CUIDADO COM O QUE VOCÊ VÊ</div>
-        </div>
-    </section>
+    <main>
+        <!-- HERO -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Cidadania Digital e Inteligência Artificial</h1>
+                <p class="subtitle">Entenda o impacto das <strong>Deepfakes</strong> e da <strong>Desinformação</strong> na nossa sociedade</p>
+                <a href="#quiz" class="cta-button">Teste seus conhecimentos →</a>
+            </div>
+            <div class="hero-image">
+                <div class="warning-badge">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span>ALERTA DIGITAL</span>
+                </div>
+            </div>
+        </section>
 
-    <!-- DEEPFAKES -->
-    <section id="deepfakes" class="section">
-        <div class="container">
-            <h2>O que são Deepfakes?</h2>
-            <div class="grid-2">
+        <!-- DEEPFAKES -->
+        <section id="deepfakes" class="section">
+            <div class="section-header">
+                <h2>O que são Deepfakes?</h2>
+                <p class="section-desc">Imagens e vídeos manipulados por Inteligência Artificial</p>
+            </div>
+            <div class="cards-grid">
                 <div class="card">
+                    <div class="card-icon"><i class="fas fa-video"></i></div>
                     <h3>Definição</h3>
-                    <p>Deepfakes são vídeos, áudios ou imagens manipulados por Inteligência Artificial que parecem extremamente reais. A palavra vem de "deep learning" + "fake".</p>
+                    <p>Deepfakes são mídias sintéticas criadas com IA que trocam rostos ou manipulam expressões de forma extremamente realista.</p>
                 </div>
                 <div class="card">
-                    <h3>Como são criados?</h3>
-                    <p>Usam redes neurais (GANs) para trocar rostos, alterar expressões, sincronizar voz e criar conteúdo falso que pode enganar até os mais atentos.</p>
+                    <div class="card-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Tecnologia</h3>
+                    <p>Utilizam redes neurais (GANs) para aprender padrões faciais e movimentos a partir de grandes quantidades de dados.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Alcance</h3>
+                    <p>Hoje qualquer pessoa com um computador médio pode criar deepfakes em poucas horas.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- RISCOS -->
-    <section id="riscos" class="section bg-alt">
-        <div class="container">
-            <h2>Os Riscos para a Sociedade</h2>
-            <div class="grid-3">
-                <div class="risk-card">
-                    <div class="risk-icon">📢</div>
-                    <h3>Desinformação</h3>
-                    <p>Fake news geradas por IA se espalham 6x mais rápido e são mais convincentes.</p>
+        <!-- IMPACTO -->
+        <section id="desinformacao" class="section bg-alt">
+            <div class="section-header">
+                <h2>Impacto na Sociedade</h2>
+            </div>
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <h3>Política</h3>
+                    <p>Vídeos falsos de candidatos podem influenciar eleições e abalar a democracia.</p>
                 </div>
-                <div class="risk-card">
-                    <div class="risk-icon">🗳️</div>
-                    <h3>Eleições</h3>
-                    <p>Manipulação de eleitores através de vídeos falsos de candidatos.</p>
+                <div class="impact-item">
+                    <h3>Social</h3>
+                    <p>Deepfakes de celebridades e pessoas comuns geram humilhação e bullying digital.</p>
                 </div>
-                <div class="risk-card">
-                    <div class="risk-icon">🛡️</div>
-                    <h3>Reputação</h3>
-                    <p>Danos à imagem de pessoas com vídeos comprometedores falsos.</p>
+                <div class="impact-item">
+                    <h3>Econômico</h3>
+                    <p>Golpes usando voz e rosto de familiares já causam prejuízos milionários.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- COMO IDENTIFICAR -->
-    <section id="identificar" class="section">
-        <div class="container">
-            <h2>Como Identificar Deepfakes</h2>
+        <!-- COMO IDENTIFICAR -->
+        <section id="identificar" class="section">
+            <div class="section-header">
+                <h2>Como Identificar Deepfakes</h2>
+            </div>
             <div class="tips-grid">
-                <div class="tip-item">
+                <div class="tip">
                     <span class="tip-number">1</span>
-                    <p><strong>Olhe os olhos:</strong> Piscadas irregulares ou ausência delas.</p>
+                    <div>
+                        <strong>Olhe os olhos</strong>
+                        <p>Piscadas irregulares ou reflexos estranhos são comuns em deepfakes.</p>
+                    </div>
                 </div>
-                <div class="tip-item">
+                <div class="tip">
                     <span class="tip-number">2</span>
-                    <p><strong>Iluminação e sombras:</strong> Inconsistências no rosto.</p>
+                    <div>
+                        <strong>Analise bordas</strong>
+                        <p>Verifique se há borrões ou inconsistências ao redor do rosto.</p>
+                    </div>
                 </div>
-                <div class="tip-item">
+                <div class="tip">
                     <span class="tip-number">3</span>
-                    <p><strong>Áudio:</strong> Sincronia labial ruim ou tom de voz estranho.</p>
+                    <div>
+                        <strong>Áudio</strong>
+                        <p>Sincronia labial ruim e tom de voz artificial são sinais importantes.</p>
+                    </div>
                 </div>
-                <div class="tip-item">
+                <div class="tip">
                     <span class="tip-number">4</span>
-                    <p><strong>Verifique fontes:</strong> Use fact-checkers (Aos Fatos, Boatos.org, etc).</p>
+                    <div>
+                        <strong>Use ferramentas</strong>
+                        <p>Microsoft Video Authenticator, Deepware Scanner, InVID Verification.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- QUIZ -->
-    <section id="quiz" class="section bg-alt">
-        <div class="container">
-            <h2>Quiz: Você consegue identificar?</h2>
+        <!-- QUIZ -->
+        <section id="quiz" class="section bg-alt">
+            <div class="section-header">
+                <h2>Teste seus Conhecimentos</h2>
+                <p>Quiz sobre Deepfakes e Desinformação</p>
+            </div>
+            
             <div id="quiz-container">
-                <div id="question" class="question"></div>
-                <div id="options" class="options"></div>
-                <button id="next-btn" class="quiz-btn" style="display: none;">Próxima pergunta</button>
-                <p id="feedback" class="feedback"></p>
+                <div id="question-container">
+                    <h3 id="question-text"></h3>
+                    <div id="options" class="options"></div>
+                </div>
+                
+                <div id="quiz-result" class="hidden">
+                    <h3>Resultado</h3>
+                    <p id="score-text"></p>
+                    <button onclick="restartQuiz()" class="cta-button">Refazer Quiz</button>
+                </div>
             </div>
-            <div id="quiz-result" class="quiz-result" style="display: none;">
-                <h3>Seu resultado</h3>
-                <p id="score-text"></p>
-                <button onclick="restartQuiz()" class="cta-button">Refazer Quiz</button>
+        </section>
+
+        <!-- FORMULÁRIO -->
+        <section id="dicas" class="section">
+            <div class="section-header">
+                <h2>Denuncie e Proteja-se</h2>
             </div>
-        </div>
-    </section>
+            <div class="form-container">
+                <form id="reportForm">
+                    <label for="name">Seu Nome</label>
+                    <input type="text" id="name" required>
+                    
+                    <label for="url">Link da mídia suspeita</label>
+                    <input type="url" id="url" placeholder="https://..." required>
+                    
+                    <label for="reason">Motivo da suspeita</label>
+                    <textarea id="reason" rows="4" required></textarea>
+                    
+                    <button type="submit" class="cta-button">Enviar Denúncia</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-    <!-- DICAS -->
-    <section id="dicas" class="section">
-        <div class="container">
-            <h2>Boas Práticas de Segurança Digital</h2>
-            <ul class="practices-list">
-                <li>✅ Sempre verifique a fonte antes de compartilhar</li>
-                <li>✅ Use extensões como "InVID Verification" ou "Deepware Scanner"</li>
-                <li>✅ Ative autenticação de dois fatores (2FA)</li>
-                <li>✅ Não clique em links suspeitos</li>
-                <li>✅ Eduque seus amigos e familiares</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 - Projeto de Recuperação | Cidadania Digital e IA</p>
-            <p>Desenvolvido para fins educacionais • Use com responsabilidade</p>
+        <div class="footer-content">
+            <p>&copy; 2026 - Projeto de Recuperação - Educação Digital e IA</p>
+            <p>Desenvolvido por [Seu Nome] • #cidadaniadigital2026</p>
         </div>
     </footer>
 
